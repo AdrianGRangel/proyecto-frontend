@@ -1,10 +1,5 @@
-import './style.css'
-import typescriptLogo from './assets/typescript.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import { setupCounter } from './counter.ts'
-import './style/style.css'
 import type { Gif } from './models/gif.interface.ts'
+import './styles/style.css'
 
 const MEDIA_URL = 'https://media.giphy.com/media';
 const gifs: Gif[] = [
@@ -43,7 +38,7 @@ gifs.forEach((gif) => {
 console.log(`Gif ${gif.title}:`);
 });
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+/*document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 <section id="center">
   <div class="hero">
     <img src="${heroImg}" class="base" width="170" height="179">
@@ -94,9 +89,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
 <div class="ticks"></div>
 <section id="spacer"></section>
-`
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+` */
 
 const app = document.querySelector<HTMLDivElement>('#app');
 if (!app) {
@@ -191,6 +184,7 @@ ${tags.map((tag) => `#${tag}`).join(' ')}
 }
 
 function renderGifs(collection: Gif[]): void {
+  if(!gallery || !status) return;
 const total = collection.length;
 const label = total === 1 ? 'resultado' : 'resultados';
 status.textContent = `${total} ${label}`;
