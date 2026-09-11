@@ -13,22 +13,19 @@ export function renderStatus(
       : `${amount} resultados encontrados.`;
   switch (currentStatus) {
     case RequestStatus.Initial:
-      container.textContent =
-        `${initialLabel} Escribe una búsqueda ` + "o selecciona un GIF.";
+      container.textContent = `${initialLabel} Preparando la consulta.`;
       break;
     case RequestStatus.Loading:
-      container.textContent = "Buscando contenido...";
+      container.textContent = "Consultando GIPHY...";
       break;
     case RequestStatus.Success:
       container.textContent = resultLabel;
       break;
     case RequestStatus.Empty:
-      container.textContent =
-        "No se encontraron GIFs. " + "Prueba con otra palabra.";
+      container.textContent = "No se encontraron GIF. Prueba otra búsqueda.";
       break;
-
     case RequestStatus.Error:
-      container.textContent = "No fue posible mostrar la información.";
+      container.textContent = "No fue posible consultar GIPHY.";
       break;
   }
 }
